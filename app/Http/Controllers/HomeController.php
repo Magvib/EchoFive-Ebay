@@ -32,11 +32,17 @@ class HomeController extends Controller
         $usr = User::all();
         $msg = msg::all();
         $timer = Timer::all();
+
+        $inTimeColon = substr_replace($timer->first()->inTime, ":", -2, 0);
+        while(strlen($inTimeColon) < 4){
+            $inTimeColon = substr_replace($inTimeColon, "0", 0, 0);
+        }
         return view('home')
         ->with('product', $product)
         ->with('usr', $usr)
         ->with('msg', $msg)
-        ->with('timer', $timer);
+        ->with('timer', $timer)
+        ->with('inTimeCon', $inTimeColon);
     }
     public function deleteUser($id)
     {

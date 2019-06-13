@@ -105,7 +105,7 @@
                                             <tr>
                                                 <td>{{ $item->user }}</td>
                                                 <td>{{ $item->totalHours }}</td>
-                                                <td>{{ $item->inTime }}</td>
+                                                <td>{{ $inTimeCon }}</td>
                                                 <td>{{ $item->outTime }}</td>
                                                 <td>{{ $item->date }}</td>
                                                 <td>
