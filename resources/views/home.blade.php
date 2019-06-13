@@ -105,9 +105,9 @@
                                             <tr>
                                                 <td>{{ $item->user }}</td>
                                                 <td>{{ $item->totalHours }}</td>
-                                                <td>{{ $inTimeCon }}</td>
-                                                <td>{{ $item->outTime }}</td>
-                                                <td>{{ $item->date }}</td>
+                                                <td>{{ substr_replace($item->inTime, ":", -2, 0) }}</td>
+                                                <td>{{ substr_replace($item->outTime, ":", -2, 0) }}</td>
+                                                <td>{{ substr_replace($item->date, "-", -2, 0) }}</td>
                                                 <td>
                                                     @if (Auth::user()->hasRole('user') || Auth::user()->hasRole('vip') || Auth::user()->hasRole('admin'))
                                                         <a onclick="return confirm('Are you sure that you wanna delete this time?')"href="{{ url('/delete-time/'.$item->id) }}">Delete</a>
