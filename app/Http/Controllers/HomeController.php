@@ -54,7 +54,7 @@ class HomeController extends Controller
             return redirect('home')->with("msg", "User not authorized")->with("msgc", "danger");
         }
         $usr = User::find($id);
-        $usr->role_id = 4;
+        $usr->role_id = 3;
         $usr->save();
         return redirect('home')->with("msg", "The account is now VIP")->with("msgc", "success");
     }
