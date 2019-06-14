@@ -299,10 +299,6 @@
                                                             <input class="form-control" type="text" name="text"
                                                                 placeholder="Text" />
                                                         </div>
-                                                        {{-- <div class="form-group">
-                                                            <input class="form-control" type="text" name="color"
-                                                                placeholder="Color" />
-                                                        </div> --}}
                                                         <div>
                                                             <select id="inputState" class="form-control" name="color">
                                                                     <option selected>primary</option>
