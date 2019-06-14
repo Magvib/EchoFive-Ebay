@@ -19,6 +19,7 @@ class CreateTimersTable extends Migration
             $table->integer('outTime'); //1230120619
             $table->float('totalHours'); //12-8 = 4 timer og 
             $table->integer('user');
+            $table->integer('date');
             $table->timestamps();
         });
     }
