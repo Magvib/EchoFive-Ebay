@@ -45,6 +45,7 @@
                                             <th>Product</th>
                                             <th>Description</th>
                                             <th>Price</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,6 +54,15 @@
                                                 <td>{{ $item->title }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td> {{ $item->price }} kr</td>
+                                                <td>
+                                                    @if ($item->uid != 0)
+                                                        Sold
+                                                    @endif
+                                                    @if ($item->uid == 0)
+                                                        <a onclick="return confirm('Are you sure that you wanna buy this item?')"
+                                                            href="{{ url('/buy-item/'.$item->id.'/'.Auth::user()->id) }}">Buy</a>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -87,7 +97,33 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                @foreach ($product as $item)
+                                @if (Auth::user()->id == $item->uid)
+                                        <br>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Purchases</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($product->reverse() as $item)
+                                                    <tr>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->description }}</td>
+                                                        <td> {{ $item->price }} kr</td>
+                                                        <td>
+                                                                <a onclick="return confirm('Are you sure that you wanna delete this product?')"
+                                                                href="{{ url('/delete-product/'.$item->id) }}">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    @endif
+                                @endforeach
                                 @if ($timer->count() > 0)
+                                    <br>
                                     <table class="table">
                                         <thead>
                                             <tr>

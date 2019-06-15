@@ -100,7 +100,8 @@ class HomeController extends Controller
         Product::create([
             'title' => $title,
             'price' => $price,
-            'description' => $description
+            'description' => $description,
+            'uid' => 0
         ]);
         return redirect('home')->with("msg", "Product uploaded")->with("msgc", "success");
     }
@@ -123,7 +124,7 @@ class HomeController extends Controller
         if (Auth::user()->hasRole('user')) {
             return redirect('home')->with("msg", "User not authorized")->with("msgc", "danger");
         }
-        $msg =  msg::find($id);
+        $msg = msg::find($id);
         $msg->delete();
         return redirect('home')->with("msg", "Message deleted")->with("msgc", "danger");
     }
@@ -132,8 +133,18 @@ class HomeController extends Controller
         if (Auth::user()->hasRole('user')) {
             return redirect('home')->with("msg", "User not authorized")->with("msgc", "danger");
         }
-        $msg =  Timer::find($id);
-        $msg->delete();
+        $timer = Timer::find($id);
+        $timer->delete();
         return redirect('home')->with("msg", "Time deleted")->with("msgc", "danger");
+    }
+    public function buyItem($id, $userId)
+    {
+        if (Auth::user()->hasRole('user')) {
+            return redirect('home')->with("msg", "User not authorized")->with("msgc", "danger");
+        }
+        $item = Product::find($id);
+        $item->uid = $userId;
+        $item->save();
+        return redirect('home')->with("msg", "You bought the item")->with("msgc", "success");
     }
 }

@@ -37,6 +37,7 @@ Route::get('/delete-user/{id}', 'HomeController@deleteUser')->name('home');
 Route::get('/force-op/{id}', 'HomeController@forceOP')->name('home');
 Route::get('/de-op/{id}', 'HomeController@deOP')->name('home');
 Route::get('/delete-account/{id}', 'HomeController@deleteAccount')->name('home');
+Route::get('/buy-item/{id}/{userId}', 'HomeController@buyItem')->name('home');
 
 // Iphone API
 Route::get('/loginios/{username}/{password}', 'IOSController@login');
