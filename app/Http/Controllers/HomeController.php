@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $product =  Product::all();
+        $product = Product::all();
         $usr = User::all();
         $msg = msg::all();
         $timer = Timer::all();

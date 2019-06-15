@@ -98,12 +98,18 @@
                                     </tbody>
                                 </table>
                                 @foreach ($product as $item)
-                                @if (Auth::user()->id == $item->uid)
+                                    @if (Auth::user()->id != $item->uid)
+                                    @else
+                                        <br>
+                                        <h2 class="text-center">Purchases</h2>
                                         <br>
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Purchases</th>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -122,6 +128,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        @break
                                     @endif
                                 @endforeach
                                 @if ($timer->count() > 0)
