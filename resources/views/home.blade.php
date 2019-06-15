@@ -108,15 +108,17 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($product->reverse() as $item)
-                                                    <tr>
-                                                        <td>{{ $item->title }}</td>
-                                                        <td>{{ $item->description }}</td>
-                                                        <td> {{ $item->price }} kr</td>
-                                                        <td>
+                                                    @if (Auth::user()->id == $item->uid)
+                                                        <tr>
+                                                            <td>{{ $item->title }}</td>
+                                                            <td>{{ $item->description }}</td>
+                                                            <td> {{ $item->price }} kr</td>
+                                                            <td>
                                                                 <a onclick="return confirm('Are you sure that you wanna delete this product?')"
                                                                 href="{{ url('/delete-product/'.$item->id) }}">Delete</a>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @endforeach
                                             </tbody>
                                         </table>
