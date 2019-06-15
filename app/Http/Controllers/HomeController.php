@@ -103,7 +103,7 @@ class HomeController extends Controller
             'description' => $description,
             'uid' => 0
         ]);
-        return redirect('home')->with("msg", "Product uploaded")->with("msgc", "success");
+        return redirect('home')->with("msg", "Product $title uploaded")->with("msgc", "success");
     }
 
     public function uploadMsg(Request $request)
