@@ -18,3 +18,33 @@
 ### Her har vi brugerens profil og han kan også slætte sin profil som sender ham ud til forsiden.
 ![Pic10](https://github.com/Magvib/EchoFive/blob/master/pic/10.PNG)
 ![Pic11](https://github.com/Magvib/EchoFive/blob/master/pic/11.PNG)
+
+### Instalation
+```
+git clone https://github.com/Magvib/EchoFive
+```
+Så skal du have composer.
+[Composer](https://getcomposer.org/).
+Derefter skal du have en mysql database og apache. Jeg bruger Laragon til det.
+[Laragon](https://laragon.org/). Nu skal du kopier .env.example til .env og i den fil skal du skrive din database informationer.
+```
+DB_CONNECTION=mysql
+DB_HOST= "ip"
+DB_PORT= "port"
+DB_DATABASE= "database navn"
+DB_USERNAME= "brugernavn"
+DB_PASSWORD= "adgangskode"
+```
+```
+php artisan migrate
+```
+```
+composer require tcg/voyager
+```
+```
+php artisan voyager:install
+```
+Så skal du ind på hjemmesiden og lave en konto, derefter kan du skrive komandoen her og give dig selv admin.
+```
+php artisan voyager:admin "your@email.com"
+```
