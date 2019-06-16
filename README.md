@@ -38,6 +38,7 @@ DB_PASSWORD= "adgangskode"
 ```
 php artisan migrate
 ```
+Jeg bruger et plugin som hedder [Voyager](https://github.com/the-control-group/voyager). Så derfor skal man også lige skrive dette ind i terminalen.
 ```
 composer require tcg/voyager
 ```
