@@ -6,7 +6,7 @@
 ![Pic2](https://github.com/Magvib/EchoFive/blob/master/pic/2.PNG)
 ### Og det du har købt kan du se inde på din profil.
 ![Pic3](https://github.com/Magvib/EchoFive/blob/master/pic/3.PNG)
-### Her har vi admin panelet, hvor man kan slætte brugere, slætte produkter, uploade produkter til databasen (mysql), Slætte beskeder og Sende beskeder
+### Her har vi admin panelet, hvor man kan slette brugere, slætte produkter, uploade produkter til databasen (mysql), Slætte beskeder og Sende beskeder
 ![Pic4](https://github.com/Magvib/EchoFive/blob/master/pic/4.PNG)
 ![Pic5](https://github.com/Magvib/EchoFive/blob/master/pic/5.PNG)
 ![Pic6](https://github.com/Magvib/EchoFive/blob/master/pic/6.PNG)
