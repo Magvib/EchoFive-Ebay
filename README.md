@@ -10,7 +10,7 @@
 ![Pic4](https://github.com/Magvib/EchoFive/blob/master/pic/4.PNG)
 ![Pic5](https://github.com/Magvib/EchoFive/blob/master/pic/5.PNG)
 ![Pic6](https://github.com/Magvib/EchoFive/blob/master/pic/6.PNG)
-### Her kan man Slætte beskeder og Sende beskeder globale beskeder som alle bruger kan se.
+### Her kan man slette beskeder og Sende beskeder globale beskeder som alle bruger kan se.
 ![Pic7](https://github.com/Magvib/EchoFive/blob/master/pic/7.PNG)
 ![Pic8](https://github.com/Magvib/EchoFive/blob/master/pic/8.PNG)
 ### På denne bruger er man ikke admin så man kan ikke komme ind på admin panelet, og man kan også se den globale besked som jeg sendte.
