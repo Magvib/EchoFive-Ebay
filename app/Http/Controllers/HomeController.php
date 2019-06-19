@@ -100,8 +100,7 @@ class HomeController extends Controller
         Product::create([
             'title' => $title,
             'price' => $price,
-            'description' => $description,
-            'uid' => 0
+            'description' => $description
         ]);
         return redirect('home')->with("msg", "Product $title uploaded")->with("msgc", "success");
     }

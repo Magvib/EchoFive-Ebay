@@ -133,6 +133,7 @@
                                     @endif
                                 @endforeach
                                 @if ($timer->count() > 0)
+                                    <h2 class="text-center">Total Hours</h2>
                                     <br>
                                     <table class="table">
                                         <thead>
@@ -292,6 +293,7 @@
                                                             <textarea class="form-control" rows="2" name="description"
                                                                 placeholder="Description"></textarea>
                                                         </div>
+
                                                         <div class="form-group text-center">
                                                             <button class="btn btn-primary" type="submit">Upload</button>
                                                         </div>
