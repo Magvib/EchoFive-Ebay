@@ -44,7 +44,6 @@ Route::get('/loginios/{username}/{password}', 'IOSController@login');
 Route::get('/showtimer/{user}', 'IOSController@showtimer');
 Route::get('/showtimer/{user}/{id}', 'IOSController@showtimerdag');
 Route::get('/showtimercount/{user}', 'IOSController@showtimercount');
-Route::get('/showtimerclean/{user}', 'IOSController@showtimerclean');
 Route::get('/addtimer/{userUrl}/{dateUrl}/{inTimeUrl}/{outTimeUrl}/{totalUrl}', 'IOSController@addtimer');
 
 
