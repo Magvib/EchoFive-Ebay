@@ -44,37 +44,6 @@ class IOSController extends Controller
         }
         return $HttpRequestArray;
     }
-    public function showtimer($user){
-        $timerarray = \App\Timer::where("user", $user)->cursor();
-        $printarray = [];
-        foreach ($timerarray as $time) {
-            array_push($printarray, $time);
-        }
-        return $printarray;
-    }
-    public function showtimerclean($user){
-        $timerarray = \App\Timer::where("user", $user)->cursor();
-        $printarray = [];
-        foreach ($timerarray as $time) {
-            $fullstring = [];
-            $date = $time["date"]; $date = substr_replace($date, "-", -2, 0); $date = substr_replace($date, "-", -5, 0);
-            $inTime = $time["inTime"]; $inTime = substr_replace($inTime, ":", -2, 0);
-            $outTime = $time["outTime"]; $outTime = substr_replace($outTime, ":", -2, 0);
-            $totalHours = $time["totalHours"]; $totalHours = substr_replace($totalHours, ":", -2, 0);
-            array_push($fullstring, $date);
-            array_push($fullstring, ": Ankomst: ");
-            array_push($fullstring, $inTime);
-            array_push($fullstring, " - Afgang: ");
-            array_push($fullstring, $outTime);
-            array_push($fullstring, "  Timer: ");
-            array_push($fullstring, $totalHours);
-            $fullstring = implode("", $fullstring);
-            array_push($printarray, $fullstring);
-        }
-        // unset($printarray["meme"]);
-
-        return $printarray;
-    }
     public function addtimer($userUrl, $dateUrl, $inTimeUrl, $outTimeUrl, $totalUrl){
         $inHour = $inTimeUrl[0] . $inTimeUrl[1];
         $inMinute = $inTimeUrl[2] . $inTimeUrl[3];
@@ -95,6 +64,36 @@ class IOSController extends Controller
         $allShit = "User: ".$userUrl."<br>Ankomst: " . $inHour . ":" . $inMinute ."<br>Afgang: ". $outHour.":".$outMinute. "<br>Date: " . $Day ."/". $Month."-".$Year."<br>Total timer: ".$totalUrl/10;
 
         return ['feedback' => true];
+    }
+
+
+    public function showtimer($user){
+        $timerarray = \App\Timer::where("user", $user)->cursor();
+        $printarray = [];
+        foreach ($timerarray as $time) {
+            array_push($printarray, $time);
+        }
+        return $printarray;
+    }
+    
+    public function showtimercount($user){
+        $timerarray = \App\Timer::where("user", $user)->cursor();
+        $printarray = [];
+        foreach ($timerarray as $time) {
+            array_push($printarray, $time);
+        }
+        return count($printarray);
+    }
+
+    public function showtimerdag($user, $dag){
+        $timerarray = \App\Timer::where("user", $user)->cursor();
+        $printarray = [];
+        foreach ($timerarray as $time) {
+            if($time["id"] == $dag){
+                array_push($printarray, $time);
+            }
+        }
+        return $printarray;
     }
 
 }
