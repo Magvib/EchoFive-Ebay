@@ -132,40 +132,44 @@
                                         @break
                                     @endif
                                 @endforeach
-                                @if ($timer->count() > 0)
-                                    <h2 class="text-center">Total Hours</h2>
-                                    <br>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>User</th>
-                                                <th>Total Hours</th>
-                                                <th>In Time</th>
-                                                <th>Out Time</th>
-                                                <th>Date</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($timer->reverse() as $item)
-                                            @if (Auth::user()->id == $item->user)
-                                            <tr>
-                                                <td>{{ $item->user }}</td>
-                                                <td>{{ $item->totalHours }}</td>
-                                                <td>{{ substr_replace($item->inTime, ":", -2, 0) }}</td>
-                                                <td>{{ substr_replace($item->outTime, ":", -2, 0) }}</td>
-                                                <td>{{ substr_replace($item->date, "-", -2, 0) }}</td>
-                                                <td>
-                                                    @if (Auth::user()->hasRole('user') || Auth::user()->hasRole('vip') || Auth::user()->hasRole('admin'))
-                                                        <a onclick="return confirm('Are you sure that you wanna delete this time?')"href="{{ url('/delete-time/'.$item->id) }}">Delete</a>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                            @endif
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                @endif
+                                @foreach ($timer as $item)
+                                    @if (Auth::user()->id != $item->user)
+                                    @else
+                                        <h2 class="text-center">Total Hours</h2>
+                                        <br>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Total Hours</th>
+                                                    <th>In Time</th>
+                                                    <th>Out Time</th>
+                                                    <th>Date</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($timer->reverse() as $item)
+                                                @if (Auth::user()->id == $item->user)
+                                                <tr>
+                                                    <td>{{ $item->user }}</td>
+                                                    <td>{{ $item->totalHours }}</td>
+                                                    <td>{{ substr_replace($item->inTime, ":", -2, 0) }}</td>
+                                                    <td>{{ substr_replace($item->outTime, ":", -2, 0) }}</td>
+                                                    <td>{{ substr_replace($item->date, "-", -2, 0) }}</td>
+                                                    <td>
+                                                        @if (Auth::user()->hasRole('user') || Auth::user()->hasRole('vip') || Auth::user()->hasRole('admin'))
+                                                            <a onclick="return confirm('Are you sure that you wanna delete this time?')"href="{{ url('/delete-time/'.$item->id) }}">Delete</a>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                                @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        @break
+                                    @endif
+                                @endforeach
                             </div>
                             @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('vip'))
                                 <div role="tabpanel" class="tab-pane fade" id="tab-3">
