@@ -82,7 +82,8 @@ class IOSController extends Controller
         foreach ($timerarray as $time) {
             array_push($printarray, $time);
         }
-        return count($printarray);
+        $countarray = ['count' => count($printarray)];
+        return $countarray;
     }
 
     public function showtimerdag($user, $dag){
@@ -90,10 +91,9 @@ class IOSController extends Controller
         $printarray = [];
         foreach ($timerarray as $time) {
             if($time["id"] == $dag){
-                array_push($printarray, $time);
+                return $time;
             }
         }
-        return $printarray;
     }
 
 }
