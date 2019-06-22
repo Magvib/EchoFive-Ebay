@@ -48,7 +48,7 @@ class IOSController extends Controller
         $inHour = $inTimeUrl[0] . $inTimeUrl[1];
         $inMinute = $inTimeUrl[2] . $inTimeUrl[3];
         $outHour = $outTimeUrl[0] . $outTimeUrl[1];
-        $outMinute = $outTimeUrl[2] . $outTimeUrl[3];        
+        $outMinute = $outTimeUrl[2] . $outTimeUrl[3];
         $Day = $dateUrl[0] . $dateUrl[1];
         $Month = $dateUrl[2] . $dateUrl[3];
         $Year = $dateUrl[4] . $dateUrl[5];
@@ -75,7 +75,7 @@ class IOSController extends Controller
         }
         return $printarray;
     }
-    
+
     public function showtimercount($user){
         $timerarray = \App\Timer::where("user", $user)->cursor();
         $printarray = [];
@@ -94,6 +94,10 @@ class IOSController extends Controller
             }
         }
         return $printarray;
+    }
+    public function esp()
+    {
+        return 0;
     }
 
 }

@@ -46,4 +46,6 @@ Route::get('/showtimer/{user}/{id}', 'IOSController@showtimerdag');
 Route::get('/showtimercount/{user}', 'IOSController@showtimercount');
 Route::get('/addtimer/{userUrl}/{dateUrl}/{inTimeUrl}/{outTimeUrl}/{totalUrl}', 'IOSController@addtimer');
 
+// ESP8266
+Route::get('/esp', 'IOSController@esp');
 
