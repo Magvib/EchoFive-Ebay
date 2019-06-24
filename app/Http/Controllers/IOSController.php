@@ -94,13 +94,10 @@ class IOSController extends Controller
                 return $time;
             }
         }
-<<<<<<< Updated upstream
     }
     public function esp()
     {
         return 0;
-=======
->>>>>>> Stashed changes
     }
 
 }
