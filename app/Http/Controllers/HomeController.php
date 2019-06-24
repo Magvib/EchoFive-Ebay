@@ -139,12 +139,13 @@ class HomeController extends Controller
     }
     public function buyItem($id, $userId)
     {
-        if (Auth::user()->hasRole('user')) {
-            return redirect('home')->with("msg", "User not authorized")->with("msgc", "danger");
-        }
         $item = Product::find($id);
-        $item->uid = $userId;
-        $item->save();
-        return redirect('home')->with("msg", "You bought the item")->with("msgc", "success");
+        if ($item->uid == 0) {
+            $item->uid = $userId;
+            $item->save();
+            return redirect('home')->with("msg", "You bought the item")->with("msgc", "success");
+        } else {
+            return redirect('home')->with("msg", "Item already sold")->with("msgc", "danger");
+        }
     }
 }
