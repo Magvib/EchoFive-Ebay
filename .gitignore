@@ -2,3 +2,9 @@
 .env.*.php
 .env.php
 .env
+
+resources/views/\.DS_Store
+
+resources/\.DS_Store
+
+\.DS_Store
